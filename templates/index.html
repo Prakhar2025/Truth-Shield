@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Truth Shield - Advanced AI-powered deepfake detection for images, videos, and text to protect digital truth">
+    <title>Truth Shield - Advanced Deepfake Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt logo-icon"></i>
+                Truth Shield
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="active">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Services</a>
+                    <div class="dropdown-content glass-effect">
+                        <a href="http://localhost:3001/" class="dropdown-item" target="_blank">
+                            <i class="ś"></i>
+                            <div class="dropdown-text">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </a>
+                        <a href="/image-detection" class="dropdown-item" target="_blank">
+                            <i class="fas fa-image icon-styled"></i>
+                            <div class="dropdown-text">
+                                <h4>Image Analysis</h4>
+                                <p>Identify manipulated images</p>
+                            </div>
+                        </a>
+                        <a href="/video-detection" class="dropdown-item" target="_blank">
+                            <i class="fas fa-video icon-styled"></i>
+                            <div class="dropdown-text">
+                                <h4>Video Analysis</h4>
+                                <p>Detect deepfake videos</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#about">About</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="cta-nav">
+                <a href="login.html" class="login-button">Log In</a>
+                <a href="signup.html" class="signup-button">Sign Up</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content" data-aos="fade-right">
+                    <div class="badge-container">
+                        <span class="badge">AI-Powered <span class="dot"></span> 94% Accuracy</span>
+                    </div>
+                    <h1 class="glowing-text">Protecting Digital Truth In An Age Of Synthetic Media</h1>
+                    <p>Our advanced technology detects fake news, deepfakes, and manipulated media with enterprise-grade accuracy, ensuring content integrity across all digital channels.</p>
+                    <div class="hero-buttons">
+                        <button class="cta-button pulse" onclick="window.open('/image-detection', '_blank')">
+                            Try For Free <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="secondary-button" onclick="window.location.href='#demo-section'">
+                            <i class="fas fa-play-circle"></i> Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/face.jpg-7El1LSxNPkAagvPRCpHgGKawvA6dAq.jpeg" alt="AI Deepfake Detection" class="floating">
+                        <div class="scan-overlay">
+                            <div class="scan-line"></div>
+                            <div class="scan-data">
+                                <div class="scan-text">Analyzing facial features...</div>
+                                <div class="scan-progress">
+                                    <div class="scan-bar"></div>
+                                </div>
+                                <div class="scan-result">Deepfake detected</div>
+                            </div>
+                        </div>
+                        <div class="glow-effect"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-overlay"></div>
+                <div class="particles" id="particles"></div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-number"><span class="counter" data-target="96">0</span>%</div>
+                    <div class="stat-label">Detection Accuracy</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number"><span class="counter" data-target="40">0</span>K+</div>
+                    <div class="stat-label">Media Analyzed</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number"><span class="counter" data-target="2000">0</span>+</div>
+                    <div class="stat-label">Organizations Protected</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number"><span class="counter" data-target="3">0</span>ms</div>
+                    <div class="stat-label">Processing Time</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <h2 class="section-title" data-aos="fade-up">Our Detection Services</h2>
+            <p class="section-subtitle" data-aos="fade-up">Comprehensive tools to combat misinformation across all media types</p>
+            
+            <div class="service-boxes">
+
+ 
+
+                <div class="service-box glass-card featured" data-aos="fade-up" data-aos-delay="200" onclick="window.open('/image-detection', '_blank')">
+                    <div class="featured-tag">Most Popular</div>
+                    <div class="service-icon"><i class="fas fa-image"></i></div>
+                    <h3>Image Analysis</h3>
+                    <p>Identify AI-generated and manipulated images with our advanced computer vision technology that highlights altered areas with precision.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Manipulation heatmap</li>
+                        <li><i class="fas fa-check"></i> Metadata verification</li>
+                        <li><i class="fas fa-check"></i> GAN detection algorithms</li>
+                    </ul>
+                    <div class="service-hover">
+                        <span class="try-now">Try Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="service-box glass-card" data-aos="fade-up" data-aos-delay="300" onclick="window.open('/video-detection', '_blank')">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video Analysis</h3>
+                    <p>Detect deepfakes in videos by analyzing frame-by-frame inconsistencies, lip sync issues, and unnatural facial movements.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Temporal inconsistency detection</li>
+                        <li><i class="fas fa-check"></i> Audio-visual sync analysis</li>
+                        <li><i class="fas fa-check"></i> Facial biometric verification</li>
+                    </ul>
+                    <div class="service-hover">
+                        <span class="try-now">Try Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">How Truth Shield Works</h2>
+                <p class="section-subtitle" data-aos="fade-up">Our technology uses multi-layered verification to ensure accurate results</p>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-step" data-aos="fade-right">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Upload Content</h3>
+                        <p>Submit any image, video, or text content through our secure platform for analysis</p>
+                    </div>
+                </div>
+                <div class="process-connector" data-aos="fade-up"></div>
+                <div class="process-step" data-aos="fade-left">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced neural networks analyze the content for signs of manipulation or synthetic generation</p>
+                    </div>
+                </div>
+                <div class="process-connector" data-aos="fade-up"></div>
+                <div class="process-step" data-aos="fade-right">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Detailed Report</h3>
+                        <p>Receive a comprehensive report with confidence scores and highlighted areas of concern</p>
+                    </div>
+                </div>
+                <div class="process-connector" data-aos="fade-up"></div>
+                <div class="process-step" data-aos="fade-left">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Verification Certificate</h3>
+                        <p>For authentic content, get a verification certificate to share with your audience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section" id="demo-section">
+            <div class="demo-container">
+                <div class="demo-content" data-aos="fade-right">
+                    <h2>See Truth Shield In Action</h2>
+                    <p>Watch how our technology analyzes and identifies manipulated media in real-time.</p>
+                    <ul class="demo-features">
+                        <li><i class="fas fa-check-circle"></i> Instant detection results</li>
+                        <li><i class="fas fa-check-circle"></i> Visual heatmap of manipulated areas</li>
+                        <li><i class="fas fa-check-circle"></i> Confidence scoring system</li>
+                    </ul>
+                    <button class="cta-button">Schedule a Live Demo</button>
+                </div>
+                <div class="demo-video" data-aos="fade-left">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle play-icon"></i>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHGu3Ow-a963Y5WUfHCiW7pmiOPLYZnXLnQ&s" alt="Demo Video Thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Dashboard Preview -->
+        <section class="dashboard-preview">
+            <div class="dashboard-container">
+                <div class="dashboard-content" data-aos="fade-right">
+                    <h2>Real-Time Analytics Dashboard</h2>
+                    <p>Monitor media verification trends and insights with our interactive analytics dashboard.</p>
+                    <ul class="dashboard-features">
+                        <li><i class="fas fa-chart-line"></i> Detection trend analysis</li>
+                        <li><i class="fas fa-chart-pie"></i> Media type distribution</li>
+                        <li><i class="fas fa-globe"></i> Geographic origin mapping</li>
+                        <li><i class="fas fa-signal"></i> Confidence score metrics</li>
+                    </ul>
+                    <button class="cta-button">View Demo Dashboard</button>
+                </div>
+                <div class="dashboard-image" data-aos="fade-left">
+                    <div class="dashboard-mockup">
+                        <div class="chart-container">
+                            <canvas id="detectionChart"></canvas>
+                        </div>
+                        <div class="dashboard-data">
+                            <div class="data-card">
+                                <div class="data-number">326</div>
+                                <div class="data-label">Media Analyzed Today</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-number">78</div>
+                                <div class="data-label">Deepfakes Detected</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-number">91%</div>
+                                <div class="data-label">Average Confidence</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <h2 class="section-title" data-aos="fade-up">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle" data-aos="fade-up">Choose the plan that fits your needs</p>
+            
+            <div class="pricing-toggle" data-aos="fade-up">
+                <span class="toggle-option active">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-option">Annual <span class="save-badge">Save 20%</span></span>
+            </div>
+            
+            <div class="pricing-container">
+                <div class="pricing-card" data-aos="fade-up">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">49</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>Perfect for individuals and small teams</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 100 media analyses per month</li>
+                            <li><i class="fas fa-check"></i> Basic detection reports</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> Image & text analysis</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Video analysis</li>
+                            <li class="disabled"><i class="fas fa-times"></i> API access</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Custom integration</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <button class="pricing-button">Get Started</button>
+                    </div>
+                </div>
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">149</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>Ideal for businesses and content creators</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 500 media analyses per month</li>
+                            <li><i class="fas fa-check"></i> Advanced detection reports</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Image & text analysis</li>
+                            <li><i class="fas fa-check"></i> Video analysis</li>
+                            <li><i class="fas fa-check"></i> Basic API access</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Custom integration</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <button class="pricing-button highlighted">Get Started</button>
+                    </div>
+                </div>
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">499</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>For organizations with advanced needs</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited media analyses</li>
+                            <li><i class="fas fa-check"></i> Expert detection reports</li>
+                            <li><i class="fas fa-check"></i> 24/7 dedicated support</li>
+                            <li><i class="fas fa-check"></i> Image & text analysis</li>
+                            <li><i class="fas fa-check"></i> Video analysis</li>
+                            <li><i class="fas fa-check"></i> Full API access</li>
+                            <li><i class="fas fa-check"></i> Custom integration & training</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <button class="pricing-button">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 data-aos="fade-up">Ready to Protect Your Digital Truth?</h2>
+                <p data-aos="fade-up">Join thousands of organizations using Truth Shield to verify content authenticity</p>
+                <div class="cta-buttons" data-aos="fade-up">
+                    <button class="cta-button large">Start Free Trial</button>
+                    <button class="secondary-button large">Book a Demo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-alt logo-icon"></i>
+                    <h3>Truth Shield</h3>
+                </div>
+                <p>Protecting truth in the digital age with advanced AI-powered deepfake detection.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Solutions</h3>
+                <a href="image-detection.html">Image Verification</a>
+                <a href="video-detection.html">Video Authentication</a>
+                <a href="text-analysis.html">Text Analysis</a>
+                <a href="api.html">API Integration</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="about.html">About Us</a>
+                <a href="team.html">Our Team</a>
+                <a href="careers.html">Careers</a>
+                <a href="press.html">Press Kit</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="blog.html">Blog</a>
+                <a href="research.html">Research</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="help-center.html">Help Center</a>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <p>Get the latest news and updates on deepfake detection technology</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" aria-label="Email for newsletter">
+                    <button class="newsletter-button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Truth Shield, Inc. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="cookies.html">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-button accept">Accept All</button>
+                <button class="cookie-button customize">Customize</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
