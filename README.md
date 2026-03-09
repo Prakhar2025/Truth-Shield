@@ -346,7 +346,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For issues, questions, or suggestions:
 - Open an issue on [GitHub Issues](https://github.com/Prakhar2025/Truth-Shield/issues)
-- Contact: [your-email@example.com]
+- Contact: [prakhar230125@gmail.com]
 
 ## 🚀 Future Enhancements
 
